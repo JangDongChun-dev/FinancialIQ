@@ -1,0 +1,21 @@
+<?
+	$host ="localhost";
+	$db_id = "fiqid";
+	$db_pass = "fiqpass";
+	$dbconn = mysqli_connect($host,$db_id,$db_pass,"finance_db");
+	if(!$dbconn) {
+		$dbconn = mysqli_connect($slave,$db_id,$db_pass);
+	}
+
+	if(!$dbconn)
+	{ 
+		echo "Error: Unable to connect to MySQL." . PHP_EOL;
+		echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+		echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+		exit;
+	}
+	else
+	{
+		//echo "OK";
+	}
+?>

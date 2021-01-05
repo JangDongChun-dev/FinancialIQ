@@ -1,0 +1,67 @@
+<?
+if($_POST['yq']=="Q")
+{
+	$cQY ="(분기)";
+	$categories =array('2016/12','2017/12','2018/12','2019/12','2020/12');
+}
+else
+{
+	$cQY ="(연도)";
+	$categories =array('2016','2017','2018','2019','2020');
+}
+?>
+<div style="float:left;width:100%;border-bottom:1px solid #d4d4d4;" id="container24"></div>
+<script type="text/javascript">
+	Highcharts.chart('container24', {
+		chart: {
+			type: 'column',
+			height: '200px'
+		},
+		title: {
+			text: '현금흐름표<?=$cQY?>',
+			align: 'left',
+			style: { 'color': '#000000', 'fontSize': '12px','font-weight': 'bold' }
+		},
+		exporting:{
+			enabled: false
+		},
+		legend: {
+			enabled: true,
+		},
+		xAxis: {
+		   categories: ['<?=$categories[0]?>','<?=$categories[1]?>','<?=$categories[2]?>','<?=$categories[3]?>','<?=$categories[4]?>']
+		},
+		yAxis: {
+			title: {
+				text: ''
+			},
+			stackLabels: {
+				enabled: false,
+				style: {
+					fontWeight: 'bold',
+					color: ( // theme
+						Highcharts.defaultOptions.title.style &&
+						Highcharts.defaultOptions.title.style.color
+					) || 'gray'
+				}
+			}
+		},
+		credits: {
+			enabled: false
+		},
+		series: [{
+			name: '영업활동',
+			color: '#FE730E',
+			data: [5, 3, 4, 7, 2]
+		}, {
+			name: '투자활동',
+			color:'#2D91FF',
+			data: [2, -2, -3, 2, 1]
+		}, {
+			name: '재무활동',
+			color:'#4BB949',
+			data: [3, 4, 4, -2, 5]
+		}]
+	});
+
+</script>

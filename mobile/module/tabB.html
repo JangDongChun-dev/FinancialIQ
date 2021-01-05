@@ -1,0 +1,745 @@
+			<div id="st2_1">
+				<div class="st2_1_title">
+					<div class="st2_1_title1">재무실적 변동비교 </div>
+				</div>
+				<div class="st2_1_com">
+					<div class="st2_1_com_row">
+						<div class="st2_1_com_row_1_2">&nbsp;</div>
+						<div class="st2_1_com_row_3">전기</div>
+						<div class="st2_1_com_row_4">당기</div>
+						<div class="st2_1_com_row_5">변동성</div>
+					</div>
+					<div class="st2_1_com_row">
+						<div class="st2_1_com_row_1a"></div>
+						<div class="st2_1_com_row_2">매출액</div>
+						<div class="st2_1_com_row_3">2,345</div>
+						<div class="st2_1_com_row_4">2,345</div>
+						<div class="st2_1_com_row_5">-0.01%</div>
+					</div>
+					<div class="st2_1_com_row">
+						<div class="st2_1_com_row_1a">실적변동</div>
+						<div class="st2_1_com_row_2">영업이익</div>
+						<div class="st2_1_com_row_3">2,345</div>
+						<div class="st2_1_com_row_4">2,345</div>
+						<div class="st2_1_com_row_5">-0.01%</div>
+					</div>
+					<div class="st2_1_com_row">
+						<div class="st2_1_com_row_1a"></div>
+						<div class="st2_1_com_row_2">당기순이익</div>
+						<div class="st2_1_com_row_3">2,345</div>
+						<div class="st2_1_com_row_4">2,345</div>
+						<div class="st2_1_com_row_5">-0.01%</div>
+					</div>
+					<div class="st2_1_com_row">
+						<div class="st2_1_com_row_1b"></div>
+						<div class="st2_1_com_row_2">EPS</div>
+						<div class="st2_1_com_row_3">2,345</div>
+						<div class="st2_1_com_row_4">2,345</div>
+						<div class="st2_1_com_row_5">-0.01%</div>
+					</div>
+					<div class="st2_1_com_row">
+						<div class="st2_1_com_row_1a"></div>
+						<div class="st2_1_com_row_2">자산</div>
+						<div class="st2_1_com_row_3">2,345</div>
+						<div class="st2_1_com_row_4">2,345</div>
+						<div class="st2_1_com_row_5">-0.01%</div>
+					</div>
+					<div class="st2_1_com_row">
+						<div class="st2_1_com_row_1a">자산변동</div>
+						<div class="st2_1_com_row_2">부채(타인자본)</div>
+						<div class="st2_1_com_row_3">2,345</div>
+						<div class="st2_1_com_row_4">2,345</div>
+						<div class="st2_1_com_row_5">-0.01%</div>
+					</div>
+					<div class="st2_1_com_row">
+						<div class="st2_1_com_row_1b"></div>
+						<div class="st2_1_com_row_2">자본(자기자본)</div>
+						<div class="st2_1_com_row_3">2,345</div>
+						<div class="st2_1_com_row_4">2,345</div>
+						<div class="st2_1_com_row_5">-0.01%</div>
+					</div>
+				</div>
+			</div>
+<!-- -->
+			<div id="st2_2">
+				<div class="st2_2_title">
+					<div class="st2_2_title1">손익계산서 </div>
+					<div class="st2_2_title2">
+						<div id="st2_2_bt4" class="btn_chart_on" onclick="st2_2_DC('Q','<?=$_POST['symbol']?>')" value="Q">분기별</div>
+						<div id="st2_2_bt3" class="btn_data"     onclick="st2_2_DC('Y','<?=$_POST['symbol']?>')" value="Q">연도별</div>
+						<div id="st2_2_bt2" class="btn_chart"    onclick="st2_2_DC('C','<?=$_POST['symbol']?>')" value="D">별도</div>
+						<div id="st2_2_bt1" class="btn_data_on"  onclick="st2_2_DC('D','<?=$_POST['symbol']?>')" value="D">연결</div>
+					</div>
+				</div>
+				<div class="st2_2_com" id="st2_2_cd">
+					<div id="st2_2_cd_chart"></div>
+					<div id="st2_2_cd_data"> 
+						<div class="st2_2_com_row">
+							<div class="st2_2_com_row_1">
+								<div class="st2_2_com_row_1_1 st2_2_bg_f9">IFRS(연결)		</div>
+								<div class="st2_2_com_row_1_1 st2_2_bg_f9">매출액			</div>
+								<div class="st2_2_com_row_1_1 st2_2_bg_f9">매출원가		</div>
+								<div class="st2_2_com_row_1_1 st2_2_bg_f9">매출총이익		</div>
+								<div class="st2_2_com_row_1_1 st2_2_bg_f9">판매비와관리비	</div>
+								<div class="st2_2_com_row_1_1 st2_2_bg_f9">영업이익		</div>
+								<div class="st2_2_com_row_1_1 st2_2_bg_f9">당기순이익		</div>
+							</div>
+							<div class="st2_2_com_row_2">
+								<div style="float:left;width:100%;">
+									<div style="float:left;width:33%;">
+										<div class="st2_2_com_row_2_1 st2_2_bg_f9">2019/12</div>
+										<div class="st2_2_com_row_2_1">2,345,001</div>
+										<div class="st2_2_com_row_2_1">2,345,001</div>
+										<div class="st2_2_com_row_2_1">2,345,001</div>
+										<div class="st2_2_com_row_2_1">2,345,001</div>
+										<div class="st2_2_com_row_2_1">2,345,001</div>
+										<div class="st2_2_com_row_2_1">2,345,001</div>
+									</div>
+									<div style="float:left;width:33%;">
+										<div class="st2_2_com_row_2_1 st2_2_bg_f9">2020/03</div>
+										<div class="st2_2_com_row_2_1">2,345,001</div>
+										<div class="st2_2_com_row_2_1">2,345,001</div>
+										<div class="st2_2_com_row_2_1">2,345,001</div>
+										<div class="st2_2_com_row_2_1">2,345,001</div>
+										<div class="st2_2_com_row_2_1">2,345,001</div>
+										<div class="st2_2_com_row_2_1">2,345,001</div>
+									</div>
+									<div style="float:left;width:33%;">
+										<div class="st2_2_com_row_2_1 st2_2_bg_f9">전년동기(%)</div>
+										<div class="st2_2_com_row_2_1 st2_2_bg_f9">-3.12</div>
+										<div class="st2_2_com_row_2_1 st2_2_bg_f9">-3.12</div>
+										<div class="st2_2_com_row_2_1 st2_2_bg_f9">-3.12</div>
+										<div class="st2_2_com_row_2_1 st2_2_bg_f9">-3.12</div>
+										<div class="st2_2_com_row_2_1 st2_2_bg_f9">-3.12</div>
+										<div class="st2_2_com_row_2_1 st2_2_bg_f9">-3.12</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+<!-- -->
+<!-- -->
+			<div id="st2_3">
+				<div class="st2_3_title">
+					<div class="st2_3_title1">재무상태표 </div>
+					<div class="st2_3_title2">
+						<div id="st2_3_bt4" class="btn_chart_on" onclick="st2_3_DC('Q','<?=$_POST['symbol']?>')" value="Q">분기별</div>
+						<div id="st2_3_bt3" class="btn_data"     onclick="st2_3_DC('Y','<?=$_POST['symbol']?>')" value="Q">연도별</div>
+						<div id="st2_3_bt2" class="btn_chart"    onclick="st2_3_DC('C','<?=$_POST['symbol']?>')" value="D">별도</div>
+						<div id="st2_3_bt1" class="btn_data_on"  onclick="st2_3_DC('D','<?=$_POST['symbol']?>')" value="D">연결</div>
+					</div>
+				</div>
+				<div class="st2_3_com" id="st2_3_cd">
+					<div id="st2_3_cd_chart"></div>
+					<div id="st2_3_cd_data">
+						<div class="st2_3_com_row">
+							<div class="st2_3_com_row_1">
+								<div class="st2_3_com_row_1_1 st2_3_bg_f9">IFRS(연결)</div>
+								<div class="st2_3_com_row_1_1 st2_3_bg_f9">자산		</div>
+								<div class="st2_3_com_row_1_1 st2_3_bg_f9">부채		</div>
+								<div class="st2_3_com_row_1_1 st2_3_bg_f9">자본		</div>
+								<div class="st2_3_com_row_1_1 st2_3_bg_f9">자본금		</div>
+							</div>
+							<div class="st2_3_com_row_2">
+								<div style="float:left;width:100%;">
+									<div style="float:left;width:33%;">
+										<div class="st2_3_com_row_2_1 st2_3_bg_f9">2018/12</div>
+										<div class="st2_3_com_row_2_1">2,345,001</div>
+										<div class="st2_3_com_row_2_1">2,345,001</div>
+										<div class="st2_3_com_row_2_1">2,345,001</div>
+										<div class="st2_3_com_row_2_1">2,345,001</div>
+									</div>
+									<div style="float:left;width:33%;">
+										<div class="st2_3_com_row_2_1 st2_3_bg_f9">2019/12</div>
+										<div class="st2_3_com_row_2_1">2,345,001</div>
+										<div class="st2_3_com_row_2_1">2,345,001</div>
+										<div class="st2_3_com_row_2_1">2,345,001</div>
+										<div class="st2_3_com_row_2_1">2,345,001</div>
+									</div>
+									<div style="float:left;width:33%;">
+										<div class="st2_3_com_row_2_1 st2_3_bg_f9">2020/03</div>
+										<div class="st2_3_com_row_2_1">2,345,001</div>
+										<div class="st2_3_com_row_2_1">2,345,001</div>
+										<div class="st2_3_com_row_2_1">2,345,001</div>
+										<div class="st2_3_com_row_2_1">2,345,001</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="st2_4">
+				<div class="st2_4_title">
+					<div class="st2_4_title1">현금흐름표 </div>
+					<div class="st2_4_title2">
+						<div id="st2_4_bt4" class="btn_chart_on" onclick="st2_4_DC('Q','<?=$_POST['symbol']?>')" value="Q">분기별</div>
+						<div id="st2_4_bt3" class="btn_data"     onclick="st2_4_DC('Y','<?=$_POST['symbol']?>')" value="Q">연도별</div>
+						<div id="st2_4_bt2" class="btn_chart"    onclick="st2_4_DC('C','<?=$_POST['symbol']?>')" value="D">별도</div>
+						<div id="st2_4_bt1" class="btn_data_on"  onclick="st2_4_DC('D','<?=$_POST['symbol']?>')" value="D">연결</div>
+					</div>
+				</div>
+				<div class="st2_4_com" id="st2_4_cd">
+					<div id="st2_4_cd_chart"></div>
+					<div id="st2_4_cd_data">
+						<div class="st2_4_com_row">
+							<div class="st2_4_com_row_1">
+								<div class="st2_4_com_row_1_1 st2_4_bg_f9">IFRS(연결)</div>
+								<div class="st2_4_com_row_1_1 st2_4_bg_f9">영업활동	</div>
+								<div class="st2_4_com_row_1_1 st2_4_bg_f9">투자활동	</div>
+								<div class="st2_4_com_row_1_1 st2_4_bg_f9">재무활동	</div>
+								<div class="st2_4_com_row_1_1 st2_4_bg_f9">현금자산의 증가 </div>
+							</div>
+							<div class="st2_4_com_row_2">
+								<div style="float:left;width:100%;">
+									<div style="float:left;width:33%;">
+										<div class="st2_4_com_row_2_1 st2_4_bg_f9">2018/12</div>
+										<div class="st2_4_com_row_2_1">2,345,001</div>
+										<div class="st2_4_com_row_2_1">2,345,001</div>
+										<div class="st2_4_com_row_2_1">2,345,001</div>
+										<div class="st2_4_com_row_2_1">2,345,001</div>
+									</div>
+									<div style="float:left;width:33%;">
+										<div class="st2_4_com_row_2_1 st2_4_bg_f9">2019/12</div>
+										<div class="st2_4_com_row_2_1">2,345,001</div>
+										<div class="st2_4_com_row_2_1">2,345,001</div>
+										<div class="st2_4_com_row_2_1">2,345,001</div>
+										<div class="st2_4_com_row_2_1">2,345,001</div>
+									</div>
+									<div style="float:left;width:33%;">
+										<div class="st2_4_com_row_2_1 st2_4_bg_f9">2020/03</div>
+										<div class="st2_4_com_row_2_1">2,345,001</div>
+										<div class="st2_4_com_row_2_1">2,345,001</div>
+										<div class="st2_4_com_row_2_1">2,345,001</div>
+										<div class="st2_4_com_row_2_1">2,345,001</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="st2_5">
+				<div class="st2_5_title">
+					<div class="st2_5_title1">투자지표 </div>
+					<div class="st2_5_title2">
+						<div id="st2_5_bt2" class="btn_data"     onclick="st2_5_DC('Q','<?=$_POST['symbol']?>')" value="D">분기별</div>
+						<div id="st2_5_bt1" class="btn_data_on"  onclick="st2_5_DC('Y','<?=$_POST['symbol']?>')" value="D">연도별</div>
+					</div>
+				</div>
+				<div class="st2_5_com" id="st2_5_cd">
+					<div class="st2_5_com_row">
+						<div class="st2_5_com_row_1">
+							<div class="st2_5_com_row_1_1 st2_5_bg_f9">IFRS(연결)</div>
+							<div class="st2_5_com_row_1_1 st2_5_bg_f9">EPS		</div>
+							<div class="st2_5_com_row_1_1 st2_5_bg_f9">BPS		</div>
+							<div class="st2_5_com_row_1_1 st2_5_bg_f9">DPS		</div>
+							<div class="st2_5_com_row_1_1 st2_5_bg_f9">배당성향	</div>
+							<div class="st2_5_com_row_1_1 st2_5_bg_f9">PER		</div>
+							<div class="st2_5_com_row_1_1 st2_5_bg_f9">PBR		</div>
+							<div class="st2_5_com_row_1_1 st2_5_bg_f9">EV/EBITDA</div>
+						</div>
+						<div class="st2_5_com_row_2">
+							<div style="float:left;width:100%;">
+								<div style="float:left;width:33%;">
+									<div class="st2_5_com_row_2_1 st2_5_bg_f9">2018/12</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+								</div>
+								<div style="float:left;width:33%;">
+									<div class="st2_5_com_row_2_1 st2_5_bg_f9">2019/12</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+								</div>
+								<div style="float:left;width:33%;">
+									<div class="st2_5_com_row_2_1 st2_5_bg_f9">2020/03</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+									<div class="st2_5_com_row_2_1">2,345,001</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+<!---->
+<script>
+	function st2_2_DC(cdType,symbol)
+	{
+		var YQ2_C ="N";
+		if(cdType=="D")
+		{
+			$('#st2_2_bt1').attr('value','D');
+			$('#st2_2_bt1').attr('class','btn_data_on');
+			$('#st2_2_bt2').attr('class','btn_data');
+			YQ2_C ="N";
+			
+		}
+		else if(cdType=="C")
+		{
+			$('#st2_2_bt1').attr('value','C');
+			$('#st2_2_bt1').attr('class','btn_data');
+			$('#st2_2_bt2').attr('class','btn_data_on');
+			YQ2_C ="N";
+		}
+
+		if(cdType=="Y")
+		{
+			$('#st2_2_bt3').attr('value','Y');
+			$('#st2_2_bt3').attr('class','btn_data_on');
+			$('#st2_2_bt4').attr('class','btn_data');
+			YQ2_C ="Y";
+		}
+		else if(cdType=="Q")
+		{
+
+			$('#st2_2_bt3').attr('value','Q');
+			$('#st2_2_bt3').attr('class','btn_data');
+			$('#st2_2_bt4').attr('class','btn_data_on');
+			YQ2_C ="Y";
+		}
+
+		if($('#st2_2_bt1').attr('value')=="D")
+		{
+			var url = "st2_2_data.html";
+			var div_view ="st2_2_cd_data";
+			$('#st2_2_cd_chart').empty();
+			$('#st2_2_cd_chart').append();
+		}
+		else
+		{
+			var url = "st2_2_chart.html";
+			var div_view ="st2_2_cd_chart";
+		}
+
+		var yq = $('#st2_2_bt3').attr('value');
+
+		if(YQ2_C =="N")
+		{
+			$.ajax({
+				type: "POST",
+				url: "./module/"+url,
+				contentType: 'application/x-www-form-urlencoded; charset=utf-8;', 
+				dataType: "html",
+				timeout : 30000,
+				async: false,
+				cache : false,
+				data: {
+						 cdType      : cdType
+						,symbol      : symbol
+						,yq          : yq
+				},
+				success: function(msg) {
+					$('#'+div_view).empty();
+					$('#'+div_view).append(msg);
+				}
+			});
+		}
+		else
+		{
+			if($('#st2_2_bt1').attr('value')=="D")
+			{
+				$.ajax({
+					type: "POST",
+					url: "./module/st2_2_data.html",
+					contentType: 'application/x-www-form-urlencoded; charset=utf-8;', 
+					dataType: "html",
+					timeout : 30000,
+					async: false,
+					cache : false,
+					data: {
+							 cdType      : cdType
+							,symbol      : symbol
+							,yq          : yq
+					},
+					success: function(msg) {
+						$('#st2_2_cd_data').empty();
+						$('#st2_2_cd_data').append(msg);
+					}
+				});
+			}
+			else
+			{
+				$.ajax({
+					type: "POST",
+					url: "./module/st2_2_data.html",
+					contentType: 'application/x-www-form-urlencoded; charset=utf-8;', 
+					dataType: "html",
+					timeout : 30000,
+					async: false,
+					cache : false,
+					data: {
+							 cdType      : cdType
+							,symbol      : symbol
+							,yq          : yq
+					},
+					success: function(msg) {
+						$('#st2_2_cd_data').empty();
+						$('#st2_2_cd_data').append(msg);
+					}
+				});
+
+				$.ajax({
+					type: "POST",
+					url: "./module/st2_2_chart.html",
+					contentType: 'application/x-www-form-urlencoded; charset=utf-8;', 
+					dataType: "html",
+					timeout : 30000,
+					async: false,
+					cache : false,
+					data: {
+							 cdType      : cdType
+							,symbol      : symbol
+							,yq          : yq
+					},
+					success: function(msg) {
+						$('#st2_2_cd_chart').empty();
+						$('#st2_2_cd_chart').append(msg);
+					}
+				});
+			}
+
+
+		}
+	}
+
+	function st2_3_DC(cdType,symbol)
+	{
+		var YQ3_C ="N";
+		if(cdType=="D")
+		{
+			$('#st2_3_bt1').attr('value','D');
+			$('#st2_3_bt1').attr('class','btn_data_on');
+			$('#st2_3_bt2').attr('class','btn_data');
+			YQ3_C ="N";
+			
+		}
+		else if(cdType=="C")
+		{
+			$('#st2_3_bt1').attr('value','C');
+			$('#st2_3_bt1').attr('class','btn_data');
+			$('#st2_3_bt2').attr('class','btn_data_on');
+			YQ3_C ="N";
+		}
+
+		if(cdType=="Y")
+		{
+			$('#st2_3_bt3').attr('value','Y');
+			$('#st2_3_bt3').attr('class','btn_data_on');
+			$('#st2_3_bt4').attr('class','btn_data');
+			YQ3_C ="Y";
+		}
+		else if(cdType=="Q")
+		{
+
+			$('#st2_3_bt3').attr('value','Q');
+			$('#st2_3_bt3').attr('class','btn_data');
+			$('#st2_3_bt4').attr('class','btn_data_on');
+			YQ3_C ="Y";
+		}
+
+		if($('#st2_3_bt1').attr('value')=="D")
+		{
+			var url = "st2_3_data.html";
+			var div_view ="st2_3_cd_data";
+			$('#st2_3_cd_chart').empty();
+			$('#st2_3_cd_chart').append();
+		}
+		else
+		{
+			var url = "st2_3_chart.html";
+			var div_view ="st2_3_cd_chart";
+		}
+
+		var yq = $('#st2_3_bt3').attr('value');
+
+		if(YQ3_C =="N")
+		{
+			$.ajax({
+				type: "POST",
+				url: "./module/"+url,
+				contentType: 'application/x-www-form-urlencoded; charset=utf-8;', 
+				dataType: "html",
+				timeout : 30000,
+				async: false,
+				cache : false,
+				data: {
+						 cdType      : cdType
+						,symbol      : symbol
+						,yq          : yq
+				},
+				success: function(msg) {
+					$('#'+div_view).empty();
+					$('#'+div_view).append(msg);
+				}
+			});
+		}
+		else
+		{
+			if($('#st2_3_bt1').attr('value')=="D")
+			{
+				$.ajax({
+					type: "POST",
+					url: "./module/st2_3_data.html",
+					contentType: 'application/x-www-form-urlencoded; charset=utf-8;', 
+					dataType: "html",
+					timeout : 30000,
+					async: false,
+					cache : false,
+					data: {
+							 cdType      : cdType
+							,symbol      : symbol
+							,yq          : yq
+					},
+					success: function(msg) {
+						$('#st2_3_cd_data').empty();
+						$('#st2_3_cd_data').append(msg);
+					}
+				});
+			}
+			else
+			{
+				$.ajax({
+					type: "POST",
+					url: "./module/st2_3_data.html",
+					contentType: 'application/x-www-form-urlencoded; charset=utf-8;', 
+					dataType: "html",
+					timeout : 30000,
+					async: false,
+					cache : false,
+					data: {
+							 cdType      : cdType
+							,symbol      : symbol
+							,yq          : yq
+					},
+					success: function(msg) {
+						$('#st2_3_cd_data').empty();
+						$('#st2_3_cd_data').append(msg);
+					}
+				});
+
+				$.ajax({
+					type: "POST",
+					url: "./module/st2_3_chart.html",
+					contentType: 'application/x-www-form-urlencoded; charset=utf-8;', 
+					dataType: "html",
+					timeout : 30000,
+					async: false,
+					cache : false,
+					data: {
+							 cdType      : cdType
+							,symbol      : symbol
+							,yq          : yq
+					},
+					success: function(msg) {
+						$('#st2_3_cd_chart').empty();
+						$('#st2_3_cd_chart').append(msg);
+					}
+				});
+			}
+
+
+		}
+	}
+
+	function st2_4_DC(cdType,symbol)
+	{
+		var YQ4_C ="N";
+		if(cdType=="D")
+		{
+			$('#st2_4_bt1').attr('value','D');
+			$('#st2_4_bt1').attr('class','btn_data_on');
+			$('#st2_4_bt2').attr('class','btn_data');
+			YQ4_C ="N";
+			
+		}
+		else if(cdType=="C")
+		{
+			$('#st2_4_bt1').attr('value','C');
+			$('#st2_4_bt1').attr('class','btn_data');
+			$('#st2_4_bt2').attr('class','btn_data_on');
+			YQ4_C ="N";
+		}
+
+		if(cdType=="Y")
+		{
+			$('#st2_4_bt3').attr('value','Y');
+			$('#st2_4_bt3').attr('class','btn_data_on');
+			$('#st2_4_bt4').attr('class','btn_data');
+			YQ4_C ="Y";
+		}
+		else if(cdType=="Q")
+		{
+
+			$('#st2_4_bt3').attr('value','Q');
+			$('#st2_4_bt3').attr('class','btn_data');
+			$('#st2_4_bt4').attr('class','btn_data_on');
+			YQ4_C ="Y";
+		}
+
+		if($('#st2_4_bt1').attr('value')=="D")
+		{
+			var url = "st2_4_data.html";
+			var div_view ="st2_4_cd_data";
+			$('#st2_4_cd_chart').empty();
+			$('#st2_4_cd_chart').append();
+		}
+		else
+		{
+			var url = "st2_4_chart.html";
+			var div_view ="st2_4_cd_chart";
+		}
+
+		var yq = $('#st2_4_bt3').attr('value');
+
+		if(YQ4_C =="N")
+		{
+			$.ajax({
+				type: "POST",
+				url: "./module/"+url,
+				contentType: 'application/x-www-form-urlencoded; charset=utf-8;', 
+				dataType: "html",
+				timeout : 30000,
+				async: false,
+				cache : false,
+				data: {
+						 cdType      : cdType
+						,symbol      : symbol
+						,yq          : yq
+				},
+				success: function(msg) {
+					$('#'+div_view).empty();
+					$('#'+div_view).append(msg);
+				}
+			});
+		}
+		else
+		{
+			if($('#st2_4_bt1').attr('value')=="D")
+			{
+				$.ajax({
+					type: "POST",
+					url: "./module/st2_4_data.html",
+					contentType: 'application/x-www-form-urlencoded; charset=utf-8;', 
+					dataType: "html",
+					timeout : 30000,
+					async: false,
+					cache : false,
+					data: {
+							 cdType      : cdType
+							,symbol      : symbol
+							,yq          : yq
+					},
+					success: function(msg) {
+						$('#st2_4_cd_data').empty();
+						$('#st2_4_cd_data').append(msg);
+					}
+				});
+			}
+			else
+			{
+				$.ajax({
+					type: "POST",
+					url: "./module/st2_4_data.html",
+					contentType: 'application/x-www-form-urlencoded; charset=utf-8;', 
+					dataType: "html",
+					timeout : 30000,
+					async: false,
+					cache : false,
+					data: {
+							 cdType      : cdType
+							,symbol      : symbol
+							,yq          : yq
+					},
+					success: function(msg) {
+						$('#st2_4_cd_data').empty();
+						$('#st2_4_cd_data').append(msg);
+					}
+				});
+
+				$.ajax({
+					type: "POST",
+					url: "./module/st2_4_chart.html",
+					contentType: 'application/x-www-form-urlencoded; charset=utf-8;', 
+					dataType: "html",
+					timeout : 30000,
+					async: false,
+					cache : false,
+					data: {
+							 cdType      : cdType
+							,symbol      : symbol
+							,yq          : yq
+					},
+					success: function(msg) {
+						$('#st2_4_cd_chart').empty();
+						$('#st2_4_cd_chart').append(msg);
+					}
+				});
+			}
+		}
+	}
+
+	function st2_5_DC(cdType,symbol)
+	{
+		/*
+		if(cdType=="D") var url = "st2_5_data.html";
+		else if(cdType=="C") var url = "st2_5_chart.html";
+		*/
+		var YQ5_C ="N";
+		if(cdType=="Y")
+		{
+			$('#st2_5_bt1').attr('value','Y');
+			$('#st2_5_bt1').attr('class','btn_data_on');
+			$('#st2_5_bt2').attr('class','btn_data');
+			YQ5_C ="N";
+			
+		}
+		else if(cdType=="Q")
+		{
+			$('#st2_5_bt1').attr('value','Q');
+			$('#st2_5_bt1').attr('class','btn_data');
+			$('#st2_5_bt2').attr('class','btn_data_on');
+			YQ5_C ="N";
+		}
+		var url = "st2_5_data.html";
+		var yq = $('#st2_5_bt1').attr('value');
+		
+		$.ajax({
+			type: "POST",
+			url: "./module/"+url,
+			contentType: 'application/x-www-form-urlencoded; charset=utf-8;', 
+			dataType: "html",
+			timeout : 30000,
+			async: false,
+			cache : false,
+			data: {
+					 cdType      : cdType
+					,symbol      : symbol
+					,yq          : yq
+			},
+			success: function(msg) {
+				$('#st2_5_cd').empty();
+				$('#st2_5_cd').append(msg);
+			}
+		});
+	}
+
+</script>

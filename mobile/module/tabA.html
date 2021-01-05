@@ -1,0 +1,825 @@
+<?
+$ROOT = $_SERVER['DOCUMENT_ROOT']."/mobile";
+$code =$_POST['symbol'];
+
+include $ROOT."/include/dbconn.html";
+?>
+  <style>
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+  </style>
+			<div id="st1_1">
+				<?
+				$corp_info ="select
+									 A.symbol                     
+									,A.company_legal_name         
+									,A.comp_name_kr               
+									,A.date_or_year               
+									,A.company_tel_number         
+									,A.ir_phone_number            
+									,A.company_exec_officers      
+									,A.cie_des_bulk               
+									,A.list_mkt                   
+									,A.fis_month                  
+									,A.par_val                    
+									,A.sh_out                     
+									,A.cur_employees              
+									,A.salaries_wave_empl         
+									,A.cur_num_employees_as_per_dt
+									,A.board                      
+									,A.board_ben                  
+									,A.rate_ben                   
+									,A.modify_date                
+									,A.last_updt                  
+									,B.eqy_float
+									,B.cur_ratio
+								 from corp_info A, fa_daily B 
+								 where (A.symbol=B.symbol) and (A.symbol='".$code."')";
+					$queryA1 = mysqli_query($dbconn,$corp_info);
+					
+					if(!$queryA1)
+					{
+						$msg = mysqli_error();
+						echo $msg;
+						echo "<font color='#000'>$select</font>";
+						exit;
+
+					}
+
+					$rowA1 = mysqli_fetch_row($queryA1);
+					$symbol                      = $rowA1[0];
+					$company_legal_name          = $rowA1[1];
+					$comp_name_kr                = $rowA1[2];
+					$date_or_year                = $rowA1[3];
+					$company_tel_number          = $rowA1[4];
+					$ir_phone_number             = $rowA1[5];
+					$company_exec_officers       = $rowA1[6];
+					$cie_des_bulk                = $rowA1[7];
+					$list_mkt                    = $rowA1[8];
+					$fis_month                   = $rowA1[9];
+					$par_val                     = $rowA1[10];
+					$sh_out                      = $rowA1[11];
+					$cur_employees               = $rowA1[12];
+					$salaries_wave_empl          = $rowA1[13];
+					$cur_num_employees_as_per_dt = $rowA1[14];
+					$board                       = $rowA1[15];
+					$board_ben                   = $rowA1[16];
+					$rate_ben                    = $rowA1[17];
+					$modify_date                 = $rowA1[18];
+					$last_updt                   = $rowA1[19];
+					$eqy_float                   = $rowA1[20];
+					$cur_ratio                   = $rowA1[21];
+				?>
+				<div class="st1_1_title">
+					<div class="st1_1_title1">기본정보 <c class="fclor_bl">[<?=str_replace("-","/",substr($last_updt,0,10))?>]</c></div>
+					<div class="st1_1_title2">
+						홈/위치/폰
+					</div>
+				</div>
+
+
+				<div class="st1_1_com">
+					<div class="st1_1_com_row">
+						<div class="st1_1_com_row_1">대표자</div>
+						<div class="st1_1_com_row_2"><?=$company_exec_officers?></div>
+						<div class="st1_1_com_row_3">업종</div>
+						<div class="st1_1_com_row_4"><?//=?></div>
+					</div>
+					<div class="st1_1_com_row">
+						<div class="st1_1_com_row_1">설립일</div>
+						<div class="st1_1_com_row_2"><?=$date_or_year?></div>
+						<div class="st1_1_com_row_3">상장시장</div>
+						<div class="st1_1_com_row_4"><?=$list_mkt?></div>
+					</div>
+					<div class="st1_1_com_row">
+						<div class="st1_1_com_row_1">결산일</div>
+						<div class="st1_1_com_row_2"><?=$fis_month?> 결산</div>
+						<div class="st1_1_com_row_3">액면가</div>
+						<div class="st1_1_com_row_4"><?=$par_val?>원</div>
+					</div>
+					<div class="st1_1_com_row">
+						<div class="st1_1_com_row_1">보통주</div>
+						<div class="st1_1_com_row_2"><?=number_format($sh_out)?> 천주</div>
+						<div class="st1_1_com_row_3">우선주 배당금</div>
+						<div class="st1_1_com_row_4">  천주</div>
+					</div>
+					<div class="st1_1_com_row">
+						<div class="st1_1_com_row_1">유동주식</div>
+						<div class="st1_1_com_row_2"><?=$eqy_float?>천주</div>
+						<div class="st1_1_com_row_3">유동비율</div>
+						<div class="st1_1_com_row_4"><?=sprintf("%0.2f",$cur_ratio)?>%</div>
+					</div>
+					<div class="st1_1_com_row">
+						<div class="st1_1_com_row_1">대표전화</div>
+						<div class="st1_1_com_row_2"><?=$company_tel_number?></div>
+						<div class="st1_1_com_row_3">IR담당</div>
+						<div class="st1_1_com_row_4"><?=$ir_phone_number?></div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="st1_2">
+				<?
+				$fa_daily ="select
+									 symbol       
+									,h_date       
+									,eqy_float    
+									,cur_ratio    
+									,close_price  
+									,h52w_price   
+									,h52w_date    
+									,l52w_price   
+									,l52w_date    
+									,ttr_1mo      
+									,trr_3mo      
+									,trr_6mo      
+									,trr_1yr      
+									,sh_ins       
+									,market_cap   
+									,volume       
+									,turnover     
+									,insider_sell 
+									,insider_buy  
+									,foregin_hold 
+									,short_sell   
+									,rec_cons     
+									,cons         
+									,target_price 
+									,tot_analyst  
+									,roa          
+									,roe          
+									,per          
+									,pbr          
+									,eps          
+									,bps          
+									,cps          
+									,dps          
+									,ev_ebitda    
+									,last_updt    
+							 from fa_daily 
+							 where (symbol='".$code."')";
+			
+				$queryA2 = mysqli_query($dbconn,$fa_daily);
+
+				if(!$queryA2)
+				{
+					$msg = mysqli_error();
+					echo $msg;
+					echo "<font color='#000'>$fa_daily</font>";
+					exit;
+
+				}
+
+				$rowA2 = mysqli_fetch_row($queryA2);
+
+				$a2_symbol                    = $rowA2[0];
+				$a2_h_date                    = $rowA2[1];
+				$a2_eqy_float                 = $rowA2[2];
+				$a2_cur_ratio                 = $rowA2[3];
+				$a2_close_price               = $rowA2[4];
+				$a2_h52w_price                = $rowA2[5];
+				$a2_h52w_date                 = $rowA2[6];
+				$a2_l52w_price                = $rowA2[7];
+				$a2_l52w_date                 = $rowA2[8];
+				$a2_ttr_1mo                   = $rowA2[9];
+				$a2_trr_3mo                   = $rowA2[10];
+				$a2_trr_6mo                   = $rowA2[11];
+				$a2_trr_1yr                   = $rowA2[12];
+				$a2_sh_ins                    = $rowA2[13];
+				$a2_market_cap                = $rowA2[14];
+				$a2_volume                    = $rowA2[15];
+				$a2_turnover                  = $rowA2[16];
+				$a2_insider_sell              = $rowA2[17];
+				$a2_insider_buy               = $rowA2[18];
+				$a2_foregin_hold              = $rowA2[19];
+				$a2_short_sell                = $rowA2[20];
+				$a2_rec_cons                  = $rowA2[21];
+				$a2_cons                      = $rowA2[22];
+				$a2_target_price              = $rowA2[23];
+				$a2_tot_analyst               = $rowA2[24];
+				$a2_roa                       = $rowA2[25];
+				$a2_roe                       = $rowA2[26];
+				$a2_per                       = $rowA2[27];
+				$a2_pbr                       = $rowA2[28];
+				$a2_eps                       = $rowA2[29];
+				$a2_bps                       = $rowA2[30];
+				$a2_cps                       = $rowA2[31];
+				$a2_dps                       = $rowA2[32];
+				$a2_ev_ebitda                 = $rowA2[33];
+				$a2_last_updt                 = $rowA2[34];
+				?>
+				<div class="st1_2_title">
+					<div class="st1_2_title1">시세시황 <c class="fclor_bl">[<?=str_replace("-","/",substr($a2_last_updt,0,10))?>]</c></div>
+				</div>
+				<div class="st1_2_com">
+					<div class="st1_2_com_row">
+						<div class="st1_2_com_row_1">종가/전일대비</div>
+						<div class="st1_2_com_row_2"><?=number_format($a2_close_price)?>/+900 원(+1.65%)</div>
+					</div>
+					<div class="st1_2_com_row">
+						<div class="st1_2_com_row_1">52주 최고/최저</div>
+						<div class="st1_2_com_row_2"><?=number_format($a2_h52w_price)?>/<?=number_format($a2_l52w_price)?> 원</div>		
+					</div>
+					<div class="st1_2_com_row">
+						<div class="st1_2_com_row_1">수익률(1M/3M/6M/1Y)</div>
+						<div class="st1_2_com_row_2"><?=sprintf("%0.2f",$a2_ttr_1mo)?>/<?=sprintf("%0.2f",$a2_trr_3mo)?>/<?=sprintf("%0.2f",$a2_trr_6mo)?>/<?=sprintf("%0.2f",$a2_trr_1yr)?> %</div>
+					</div>
+					<div class="st1_2_com_row">
+						<div class="st1_2_com_row_1">기관보유비중</div>
+						<div class="st1_2_com_row_2"><?=sprintf("%0.2f",$a2_sh_ins)?> %</div>
+
+					</div>
+					<div class="st1_2_com_row">
+						<div class="st1_2_com_row_1">시가총액(보통주)</div>
+						<div class="st1_2_com_row_2"><?=number_format($a2_market_cap)?> 억원</div>
+					</div>
+					<div class="st1_2_com_row">
+						<div class="st1_2_com_row_1">거래량</div>
+						<div class="st1_2_com_row_2"><?=number_format($a2_volume)?> 주</div>
+					</div>
+					<div class="st1_2_com_row">
+						<div class="st1_2_com_row_1">거래대금</div>
+						<div class="st1_2_com_row_2"><?=number_format($a2_turnover)?> 억원</div>
+					</div>
+					<div class="st1_2_com_row">
+						<div class="st1_2_com_row_1">외국인 보유비중</div>
+						<div class="st1_2_com_row_2"><?=sprintf("%0.2f",$a2_foregin_hold)?> %</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="st1_8">
+				<?
+				$stockholder ="select
+								 symbol
+								,holders_name
+								,stocks
+								,holding_rate
+							from stockholder 
+							where symbol='".$code."'
+							order by stocks desc
+						";
+				$queryA8 = mysqli_query($dbconn,$stockholder);
+
+				if(!$queryA8)
+				{
+					$msg = mysqli_error();
+					echo "<font color='#000'>$stockholder</font>";
+					exit;
+				}
+
+				$i =0;
+				while($rowA5 = mysqli_fetch_row($queryA8))
+				{
+
+					$symbol[$i]         = $rowA5[0];
+					$holders_name[$i]   = $rowA5[1];
+					$stocks[$i]         = $rowA5[2];
+					$holding_rate[$i]   = $rowA5[3];
+					$i++;
+				}
+				?>
+				<div class="st1_8_title">
+					<div class="st1_8_title1">주주현황</div>
+				</div>
+				<div class="st1_8_com">
+					<div class="st1_8_com_row">
+						<div class="st1_8_com_row_1">주주명</div>
+						<div class="st1_8_com_row_2">보통주(주)</div>
+						<div class="st1_8_com_row_3">지분율(%)</div>
+
+					</div>
+					<?
+					for($j=0;$j<$i; $j++)
+					{
+					?>
+					<div class="st1_8_com_row">
+						<div class="st1_8_com_row_1"><?=$holders_name[$j]?></div>
+						<div class="st1_8_com_row_2"><?=number_format($stocks[$j])?></div>
+						<div class="st1_8_com_row_3"><?=number_format($holding_rate[$j])?></div>
+					</div>
+					<?
+					}
+					?>
+				</div>
+			</div>
+
+			<div id="st1_3">
+				<div class="st1_3_title">
+					<div class="st1_3_title1">기업소개 </div>
+				</div>
+				<div class="st1_3_com">
+					<div class="st1_3_com_row">
+						<div class="textarea_div">
+						<?=$cie_des_bulk?>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="st1_4">
+				<?
+				$analysis_firm_pl_info ="select
+								 A.symbol         
+								,A.h_date         
+								,A.sale_c         
+								,A.sale_s         
+								,A.cogs_c         
+								,A.cogs_s         
+								,A.gross_profit_c 
+								,A.gross_profit_s 
+								,A.operating_ex_c 
+								,A.operating_ex_s 
+								,A.oper_c         
+								,A.oper_s         
+								,A.net_c          
+								,A.net_s          
+								,A.earm_com_c     
+								,A.earm_com_s     
+								,A.last_updt      
+								,B.eps
+							 from analysis_firm_pl_info A, fa_daily B 
+							 where (A.symbol=B.symbol) and (A.symbol='".$code."')";
+			
+				$queryA4 = mysqli_query($dbconn,$analysis_firm_pl_info);
+
+				if(!$queryA4)
+				{
+					$msg = mysqli_error();
+					echo $msg;
+					echo "<font color='#000'>$fa_daily</font>";
+					exit;
+
+				}
+
+				$rowA4 = mysqli_fetch_row($queryA4);
+
+
+				$symbol            = $rowA4[0]; 
+				$h_date            = $rowA4[1]; 
+				$sale_c            = $rowA4[2]; 
+				$sale_s            = $rowA4[3]; 
+				$cogs_c            = $rowA4[4]; 
+				$cogs_s            = $rowA4[5]; 
+				$gross_profit_c    = $rowA4[6]; 
+				$gross_profit_s    = $rowA4[7]; 
+				$operating_ex_c    = $rowA4[8]; 
+				$operating_ex_s    = $rowA4[9]; 
+				$oper_c            = $rowA4[10];
+				$oper_s            = $rowA4[11];
+				$net_c             = $rowA4[12];
+				$net_s             = $rowA4[13];
+				$earm_com_c        = $rowA4[14];
+				$earm_com_s        = $rowA4[15];
+				$last_updt         = $rowA4[16];
+				$eps               = $rowA4[17];
+				?>
+				<div class="st1_4_title">
+					<div class="st1_4_title1">기업실적 </div>
+				</div>
+				<div class="st1_4_com">
+					<div class="st1_4_com_row">
+						<div class="st1_4_com_row_1">매출액</div>
+						<div class="st1_4_com_row_2">영업이익</div>
+						<div class="st1_4_com_row_3">당기순이익</div>
+						<div class="st1_4_com_row_4">EPS</div>
+					</div>
+					<div class="st1_4_com_row">
+						<div class="st1_4_com_row_1"><?=number_format($sale_c)?></div>
+						<div class="st1_4_com_row_2"><?=number_format($oper_c)?></div>
+						<div class="st1_4_com_row_3"><?=number_format($net_c)?></div>
+						<div class="st1_4_com_row_4"><?=number_format($eps)?></div>
+					</div>
+					<div class="st1_4_com_row">
+						<div class="st1_4_com_row_1">억원</div>
+						<div class="st1_4_com_row_2">억원</div>
+						<div class="st1_4_com_row_3">억원</div>
+						<div class="st1_4_com_row_4">원</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="st1_5">
+				<?
+				$perform_by_product ="select
+								 symbol
+								,h_date
+								,quarter
+								,product_name
+								,rev_lastest
+								,rev_1stAgo
+								,rev_2stAgo
+								,rev_3stAgo
+								,oper_inc_lastest
+								,oper_inc_1stAgo
+								,oper_inc_2stAgo
+								,oper_inc_3stAgo
+								,mkt_sh_lastest
+								,mkt_sh_1stAgo
+								,mkt_sh_2stAgo
+								,mkt_sh_3stAgo
+								,last_updt
+							from perform_by_product 
+							where symbol='".$code."'
+						";
+				$queryA5 = mysqli_query($dbconn,$perform_by_product);
+
+				if(!$queryA5)
+				{
+					$msg = mysqli_error();
+					echo "<font color='#000'>$perform_by_product</font>";
+					exit;
+				}
+
+				$i =0;
+				while($rowA5 = mysqli_fetch_row($queryA5))
+				{
+
+					$symbol[$i]          = $rowA5[0];
+					$h_date[$i]          = $rowA5[1];
+					$quarter[$i]         = $rowA5[2];
+					$product_name[$i]    = $rowA5[3];
+					$rev_lastest[$i]     = $rowA5[4];
+					$rev_1stAgo[$i]      = $rowA5[5];
+					$rev_2stAgo[$i]      = $rowA5[6];
+					$rev_3stAgo[$i]      = $rowA5[7];
+					$oper_inc_lastest[$i]= $rowA5[8];
+					$oper_inc_1stAgo[$i] = $rowA5[9];
+					$oper_inc_2stAgo[$i] = $rowA5[10];
+					$oper_inc_3stAgo[$i] = $rowA5[11];
+					$mkt_sh_lastest[$i]  = $rowA5[12];
+					$mkt_sh_1stAgo[$i]   = $rowA5[13];
+					$mkt_sh_2stAgo[$i]   = $rowA5[14];
+					$mkt_sh_3stAgo[$i]   = $rowA5[15];
+					$last_updt[$i]       = $rowA5[16];
+					$i++;
+				}
+				?>
+				<div class="st1_5_title">
+					<div class="st1_5_title1">분야별 실적 </div>
+				</div>
+				<div class="st1_5_com">
+					<div class="st1_5_com_row">
+						<div class="st1_5_com_row_1">사업분야</div>
+						<div class="st1_5_com_row_2">수익(단위:억원)</div>
+						<div class="st1_5_com_row_3">영업이익(단위:억원)</div>
+
+					</div>
+					<?
+					for($j=0;$j<$i; $j++)
+					{
+						if($j==5)
+						{
+						?>
+						<div id="st1_5_hidden_div" class="st1_5_accordion-box">
+							<div class="st1_5_hidden_box">
+						<?
+						}	
+					?>
+
+					<div class="st1_5_com_row">
+						<div class="st1_5_com_row_1"><?=$product_name[$j]?></div>
+						<div class="st1_5_com_row_2"><?=number_format($rev_lastest[$j])?></div>
+						<div class="st1_5_com_row_3"><?=number_format($oper_inc_lastest[$j])?></div>
+					</div>
+					<?
+						if($j>5 and $j==$i-1)
+						{
+						?>
+							</div>
+						</div>
+						<div class="st1_5_open_btn"><div id="a_text" class="st1_5_btn_txt">더보기</div></div>
+						<div class="st1_5_bottom">&nbsp;</div>
+						<?
+						}
+					}
+					?>
+				</div>
+			</div>
+			<div id="st1_6">
+				<div class="st1_6_title">
+					<div class="st1_6_title1">기업개요 - 매출비중 & 시장점유율 </div>
+				</div>
+				<div class="st1_6_com">
+					<div class="st1_6_com_row">
+						<div id="st1_6_tab1" class="st1_6_com_tab1 onTab" onclick="st1_6('A')">매출 비중</div>
+						<div id="st1_6_tab2"  class="st1_6_com_tab2 offTab" onclick="st1_6('B')">시장 점유율</div>
+					</div>
+				</div>
+				<div class="chartBox" id="st1_6_chart">
+					<script type="text/javascript">
+						Highcharts.chart('container', {
+							chart: {
+								type: 'column',
+								height: '200px'
+								
+							},
+							title: {
+								text: '매출비중추이',
+								align: 'left',
+								style: { 'color': '#000000', 'fontSize': '12px','font-weight': 'bold' }
+							},
+							xAxis: {
+								categories: ['2016/12', '2017/12', '2018/12', '2019/12', '2020/12']
+							},
+							yAxis: {
+								min: 0,
+								title: {
+									text: ''
+								},
+								stackLabels: {
+									enabled: false,
+									style: {
+										fontWeight: 'bold',
+										color: ( // theme
+											Highcharts.defaultOptions.title.style &&
+											Highcharts.defaultOptions.title.style.color
+										) || 'gray'
+									}
+								}
+							},
+							exporting:{
+								enabled: false
+							},
+							legend: {
+								enabled: false,
+								align: 'right',
+								x: -30,
+								verticalAlign: 'top',
+								y: 25,
+								floating: true,
+								backgroundColor:
+									Highcharts.defaultOptions.legend.backgroundColor || 'white',
+								borderColor: '#CCC',
+								borderWidth: 1,
+								shadow: false
+							},
+							tooltip: {
+								headerFormat: '<b>{point.x}</b><br/>',
+								pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+							},
+							plotOptions: {
+								column: {
+									stacking: 'normal',
+									dataLabels: {
+										enabled: false
+									}
+								}
+							},
+							colors: ['#FE730E','#4BB949','#2D91FF','#OE58EE','#F94723'],
+						
+							series: [{
+								name: 'John',
+								data: [5, 3, 4, 7, 2],
+								
+							}, {
+								name: 'Jane',
+								data: [2, 2, 3, 2, 1],
+							}, {
+								name: 'Joe',
+								data: [3, 4, 4, 2, 5],
+							}]
+						});
+					</script>
+					 <div id="container"></div>
+				</div>
+			</div>
+
+			<div id="st1_7">
+				<div class="st1_6_title">
+					<div class="st1_6_title1">기업개요 - 주가수급현황(외국인보유비중,시가 총액) </div>
+				</div>
+				<div class="chartBox"  id="st1_7_chart">
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" id="st1_7_chart1"><div style="float:left;width:100%;" id="container2"></div></div>
+      <div class="swiper-slide" id="st1_7_chart2"></div>
+      <div class="swiper-slide" id="st1_7_chart3"></div>
+      <div class="swiper-slide" id="st1_7_chart4"></div>
+      <div class="swiper-slide" id="st1_7_chart5"></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+
+<!--
+					<div style="float:left;width:4%;height:200px;line-height:200px;font-weight: bold;font-size:26px" onclick="st1_7_chart('E')"> < </div>
+					<div  style="float:left;width:92%;" >
+
+
+						<div style="float:left;width:100%;" id="container2"></div>
+					
+					
+					
+					</div>
+					<div style="float:left;width:4%;height:200px;line-height:200px;font-weight: bold;font-size:26px" onclick="st1_7_chart('B')"> > </div>
+-->					
+				</div>
+				<script type="text/javascript">
+					Highcharts.getJSON(
+						'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/usdeur.json',
+						function (data) {
+
+							Highcharts.chart('container2', {
+								chart: {
+									zoomType: 'x',
+									height: '200px'
+
+								},
+								title: {
+									text: '주가추이, 내부자거래',
+									align: 'left',
+									style: { 'color': '#000000', 'fontSize': '12px','font-weight': 'bold' }
+								},
+								exporting:{
+									enabled: false
+								},
+								subtitle: {
+									/*
+									text: document.ontouchstart === undefined ?
+										'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+									*/
+								},
+								xAxis: {
+									type: 'datetime'
+								},
+								yAxis: {
+									title: {
+										text: ''
+									}
+								},
+								legend: {
+									enabled: false
+								},
+								plotOptions: {
+									area: {
+										/*
+										fillColor: {
+											linearGradient: {
+												x1: 0,
+												y1: 0,
+												x2: 0,
+												y2: 1
+											},
+											stops: [
+												[0, Highcharts.getOptions().colors[0]],
+												[1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+											]
+										},
+										*/
+										marker: {
+											radius: 1
+											
+										},
+										lineWidth: 1,
+										states: {
+											hover: {
+												lineWidth: 1
+											}
+										},
+										threshold: null,
+										
+									}
+								},
+
+								series: [{
+									type: 'area',
+									name: 'USD to EUR',
+									color: '#FE730E',
+									data: data
+								}]
+							});
+						}
+					);
+				</script>
+			</div>
+			<script>
+				$("div.st1_5_open_btn").on('click',function(){
+					$(".st1_5_hidden_box").slideToggle(500);
+
+					if(document.getElementById('a_text').innerHTML =="더보기" )
+					{
+						document.getElementById('a_text').innerHTML ="닫기";
+					}
+					else
+					{
+						document.getElementById('a_text').innerHTML ="더보기";
+					}
+				});
+			</script>
+
+<script>
+var myPlugin = {
+      name: 'debugger',
+      params: {
+        debugger: false,
+      },
+      on: {
+        init: function (swiper) {
+          if (!swiper.params.debugger) return;
+          console.log('init');
+        },
+        click: function (swiper, e) {
+          if (!swiper.params.debugger) return;
+          console.log('click');
+        },
+        tap: function (swiper, e) {
+          if (!swiper.params.debugger) return;
+          console.log('tap');
+        },
+        doubleTap: function (swiper, e) {
+          if (!swiper.params.debugger) return;
+          console.log('doubleTap');
+        },
+        sliderMove: function (swiper, e) {
+          if (!swiper.params.debugger) return;
+          console.log('sliderMove');
+        },
+        slideChange: function (swiper) {
+          if (!swiper.params.debugger) return;
+          console.log('slideChange', this.previousIndex, '->', this.activeIndex);
+        },
+        slideChangeTransitionStart: function (swiper) {
+          if (!swiper.params.debugger) return;
+          console.log('slideChangeTransitionStart');
+        },
+        slideChangeTransitionEnd: function (swiper) {
+          if (!swiper.params.debugger) return;
+          console.log('slideChangeTransitionEnd');
+		  st1_7_chart((this.previousIndex+1), (this.activeIndex+1))
+
+        },
+        transitionStart: function (swiper) {
+          if (!swiper.params.debugger) return;
+          console.log('transitionStart');
+        },
+        transitionEnd: function (swiper) {
+          if (!swiper.params.debugger) return;
+          console.log('transitionEnd');
+        },
+        fromEdge: function (swiper) {
+          if (!swiper.params.debugger) return;
+          console.log('fromEdge');
+        },
+        reachBeginning: function (swiper) {
+          if (!swiper.params.debugger) return;
+          console.log('reachBeginning');
+        },
+        reachEnd: function (swiper) {
+          if (!swiper.params.debugger) return;
+          console.log('reachEnd');
+        },
+      },
+    };
+  </script>
+  <script>
+	Swiper.use(myPlugin);
+
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 1,
+	  centeredSlides: true,
+      loop: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+	 debugger: true,
+    });
+
+  </script>
+  

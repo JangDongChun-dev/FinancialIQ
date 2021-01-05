@@ -1,0 +1,116 @@
+<?
+if($_POST['yq']=="Q")
+{
+	$cQY ="(분기)";
+	$categories =array('2016/12','2017/12','2018/12','2019/12','2020/12');
+}
+else
+{
+	$cQY ="(연도)";
+	$categories =array('2016','2017','2018','2019','2020');
+}
+?>
+
+<div style="float:left;width:100%;border-bottom:1px solid #d4d4d4;" id="container23"></div>
+<script type="text/javascript">
+	Highcharts.chart('container23', {
+			chart: {
+				zoomType: 'x',
+				height: '200px'
+			},
+			title: {
+				text: '재무상태표<?=$cQY?>',
+				align: 'left',
+				style: { 'color': '#000000', 'fontSize': '12px','font-weight': 'bold' }
+			},
+			xAxis: {
+				categories: ['<?=$categories[0]?>','<?=$categories[1]?>','<?=$categories[2]?>','<?=$categories[3]?>','<?=$categories[4]?>']
+			},
+			/*
+			yAxis: {
+				min: 0,
+				title: {
+					text: ''
+				},
+				stackLabels: {
+					enabled: false,
+					style: {
+						fontWeight: 'bold',
+						color: ( // theme
+							Highcharts.defaultOptions.title.style &&
+							Highcharts.defaultOptions.title.style.color
+						) || 'gray'
+					}
+				}
+			},
+			*/
+			yAxis: [{ // Primary yAxis
+				labels: {
+					format: '{value}°C',
+					style: {
+						color: Highcharts.getOptions().colors[1]
+					}
+				},
+				title: {
+					text: '',
+					style: {
+						color: Highcharts.getOptions().colors[1]
+					}
+				}
+			}, { // Secondary yAxis
+				title: {
+					text: '',
+					style: {
+						color: Highcharts.getOptions().colors[0]
+					}
+				},
+				labels: {
+					format: '{value} mm',
+					style: {
+						color: Highcharts.getOptions().colors[0]
+					}
+				},
+				opposite: true
+			}],
+			exporting:{
+				enabled: false
+			},
+			legend: {
+				enabled: false,
+			},
+			tooltip: {
+				headerFormat: '<b>{point.x}</b><br/>',
+				pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+			},
+			plotOptions: {
+				column: {
+					stacking: 'normal',
+					dataLabels: {
+						enabled: false
+					}
+				}
+			},
+			colors: ['#FE730E','#4BB949','#2D91FF','#OE58EE','#F94723'],
+		
+			series: [{
+				type: 'spline',
+				name: 'John',
+				data: [500, 300, 400, 700, 200],
+				marker: {
+					enabled: true
+				},
+				zIndex: 1,
+				yAxis: 1
+				
+			},{
+				type: 'column',
+				name: 'Jane',
+				data: [2, 2, 3, 2, 1]
+			}, {
+				type: 'column',
+				name: 'Joe',
+				data: [3, 4, 4, 2, 5]
+			}]
+		});
+						
+</script>

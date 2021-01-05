@@ -1,0 +1,52 @@
+<?
+if($_POST['yq']=="Q")
+{
+	$data_arry =array("2019/12","2020/03","전분기동기(%)");
+}
+else
+{
+	$data_arry =array("2019","2020","전년동기(%)");
+}
+?>
+<div class="st2_2_com_row">
+	<div class="st2_2_com_row_1">
+		<div class="st2_2_com_row_1_1 st2_2_bg_f9">IFRS(연결)		</div>
+		<div class="st2_2_com_row_1_1 st2_2_bg_f9">매출액			</div>
+		<div class="st2_2_com_row_1_1 st2_2_bg_f9">매출원가		</div>
+		<div class="st2_2_com_row_1_1 st2_2_bg_f9">매출총이익		</div>
+		<div class="st2_2_com_row_1_1 st2_2_bg_f9">판매비와관리비	</div>
+		<div class="st2_2_com_row_1_1 st2_2_bg_f9">영업이익		</div>
+		<div class="st2_2_com_row_1_1 st2_2_bg_f9">당기순이익		</div>
+	</div>
+	<div class="st2_2_com_row_2">
+		<div style="float:left;width:100%;">
+			<div style="float:left;width:33%;">
+				<div class="st2_2_com_row_2_1 st2_2_bg_f9"><?=$data_arry[0]?></div>
+				<div class="st2_2_com_row_2_1">2,345,001</div>
+				<div class="st2_2_com_row_2_1">2,345,001</div>
+				<div class="st2_2_com_row_2_1">2,345,001</div>
+				<div class="st2_2_com_row_2_1">2,345,001</div>
+				<div class="st2_2_com_row_2_1">2,345,001</div>
+				<div class="st2_2_com_row_2_1">2,345,001</div>
+			</div>
+			<div style="float:left;width:33%;">
+				<div class="st2_2_com_row_2_1 st2_2_bg_f9"><?=$data_arry[1]?></div>
+				<div class="st2_2_com_row_2_1">2,345,001</div>
+				<div class="st2_2_com_row_2_1">2,345,001</div>
+				<div class="st2_2_com_row_2_1">2,345,001</div>
+				<div class="st2_2_com_row_2_1">2,345,001</div>
+				<div class="st2_2_com_row_2_1">2,345,001</div>
+				<div class="st2_2_com_row_2_1">2,345,001</div>
+			</div>
+			<div style="float:left;width:33%;">
+				<div class="st2_2_com_row_2_1 st2_2_bg_f9"><?=$data_arry[2]?></div>
+				<div class="st2_2_com_row_2_1 st2_2_bg_f9">-3.12</div>
+				<div class="st2_2_com_row_2_1 st2_2_bg_f9">-3.12</div>
+				<div class="st2_2_com_row_2_1 st2_2_bg_f9">-3.12</div>
+				<div class="st2_2_com_row_2_1 st2_2_bg_f9">-3.12</div>
+				<div class="st2_2_com_row_2_1 st2_2_bg_f9">-3.12</div>
+				<div class="st2_2_com_row_2_1 st2_2_bg_f9">-3.12</div>
+			</div>
+		</div>
+	</div>
+</div>

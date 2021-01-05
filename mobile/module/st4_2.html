@@ -1,0 +1,51 @@
+<?
+switch($_POST['gubun'])
+{
+	case 1 :
+		$gName ="매출";
+		$st3_1_L ="red";
+		$st3_1_R ="blue";
+		$st3_1_L_buho ="▲";
+		$st3_1_R_buho ="▼";
+		break;
+	case 2 :
+		$gName ="영업이익";
+		$st3_1_L ="blue";
+		$st3_1_R ="red";
+		$st3_1_L_buho ="▼";
+		$st3_1_R_buho ="▲";
+		break;
+	case 3 :
+		$gName ="ROE";
+		$st3_1_L ="red";
+		$st3_1_R ="blue";
+		$st3_1_L_buho ="▲";
+		$st3_1_R_buho ="▼";
+		break;
+	case 4 :
+		$gName ="EPS";
+		$st3_1_L ="blue";
+		$st3_1_R ="red";
+		$st3_1_L_buho ="▼";
+		$st3_1_R_buho ="▲";
+		break;
+	case 5 :
+		$gName ="PER";
+		$st3_1_L ="red";
+		$st3_1_R ="blue";
+		$st3_1_L_buho ="▲";
+		$st3_1_R_buho ="▼";
+		break;
+}
+?>
+
+<div class="st3_1_com_row_1_1_L">
+	<div class="st3_1_com_row_1_1_L_1">삼성전자(<?=$gName?>)</div>
+	<div class="st3_1_com_row_1_1_L_2">12,345 억원</div>
+	<div class="st3_1_com_row_1_1_L_3 <?=$st3_1_L?>"><?=$st3_1_L_buho?> 0.12%</div>
+</div>
+<div class="st3_1_com_row_1_1_R">
+	<div class="st3_1_com_row_1_1_R_1">전자제품 평균(<?=$gName?>)</div>
+	<div class="st3_1_com_row_1_1_R_2">12,345 억원</div>
+	<div class="st3_1_com_row_1_1_R_3 <?=$st3_1_R?>"><?=$st3_1_R_buho?> 0.12%</div>
+</div>

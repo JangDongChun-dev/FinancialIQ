@@ -1,0 +1,59 @@
+<div style="float:left;width:100%;" id="container25"></div>
+<script type="text/javascript">
+	Highcharts.chart('container25', {
+		chart: {
+			type: 'column',
+			height: '200px'
+		},
+		title: {
+			text: '투자지표',
+			align: 'left',
+			style: { 'color': '#000000', 'fontSize': '12px','font-weight': 'bold' }
+		},
+		exporting:{
+			enabled: false
+		},
+		legend: {
+			enabled: true,
+		},
+		xAxis: {
+		   categories: ['PER', 'EV/EBITDA', 'PBR']
+		},
+		yAxis: {
+			title: {
+				text: ''
+			},
+			stackLabels: {
+				enabled: false,
+				style: {
+					fontWeight: 'bold',
+					color: ( // theme
+						Highcharts.defaultOptions.title.style &&
+						Highcharts.defaultOptions.title.style.color
+					) || 'gray'
+				}
+			}
+		},
+		credits: {
+			enabled: false
+		},
+		series: [{
+			name: '2016/12',
+			color: '#FE730E',
+			data: [50, 30, 40]
+		}, {
+			name: '2017/12',
+			color:'#2D91FF',
+			data: [20, 10, 30]
+		}, {
+			name: '2018/12',
+			color:'#4BB949',
+			data: [30, 40, 40]
+		}, {
+			name: '2019/12',
+			color:'#B9B649',
+			data: [10, 15, 30]
+		}]
+	});
+
+</script>

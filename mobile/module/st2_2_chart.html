@@ -1,0 +1,126 @@
+<?
+if($_POST['yq']=="Q")
+{
+	$cQY ="(분기)";
+	$categories =array('2016/12','2017/12','2018/12','2019/12');
+}
+else
+{
+	$cQY ="(연도)";
+	$categories =array('2016','2017','2018','2019');
+}
+?>
+						<div style="float:left;width:100%;border-bottom:1px solid #d4d4d4;" id="container2"></div>
+						<script type="text/javascript">
+							Highcharts.chart('container2', {
+								chart: {
+									zoomType: 'x',
+									height: '200px'
+								},
+								title: {
+									text: '손익계산서<?=$cQY?>',
+									align: 'left',
+									style: { 'color': '#000000', 'fontSize': '12px','font-weight': 'bold' }
+								},
+								subtitle: {
+									text: ''
+								},
+								exporting:{
+									enabled: false
+								},
+								/*
+								xAxis: {
+									type: 'datetime'
+								},
+								*/
+								/**/
+								xAxis: [{
+									categories: ['<?=$categories[0]?>','<?=$categories[1]?>','<?=$categories[2]?>','<?=$categories[3]?>'],
+									crosshair: true
+								}],
+								/**/
+								yAxis: [{ // Primary yAxis
+									labels: {
+										format: '{value}°C',
+										style: {
+											color: Highcharts.getOptions().colors[1]
+										}
+									},
+									title: {
+										text: '',
+										style: {
+											color: Highcharts.getOptions().colors[1]
+										}
+									}
+								}, { // Secondary yAxis
+									title: {
+										text: '',
+										style: {
+											color: Highcharts.getOptions().colors[0]
+										}
+									},
+									labels: {
+										format: '{value} mm',
+										style: {
+											color: Highcharts.getOptions().colors[0]
+										}
+									},
+									opposite: true
+								}],
+								tooltip: {
+									shared: true
+								},
+								legend: {
+									enabled: false,
+									layout: 'vertical',
+									align: 'left',
+									x: 120,
+									verticalAlign: 'top',
+									y: 100,
+									floating: true,
+									backgroundColor:
+										Highcharts.defaultOptions.legend.backgroundColor || // theme
+										'rgba(255,255,255,0.25)'
+								},
+
+								series: [{
+									name: 'Rainfall',
+									type: 'column',
+									yAxis: 1,
+									data: [25000000,25000000,25000000,25000000],
+									tooltip: {
+										valueSuffix: ' mm'
+									},
+									zIndex: 1,
+									color: '#FE730E',
+									marker: {
+										enabled: false
+									}
+
+								}, {
+									name: 'column',
+									type: 'spline',
+									data: [8.4,8.8,8.5,8.7],
+									tooltip: {
+										valueSuffix: '°C'
+									},
+									zIndex: 2,
+									color:'#2D91FF',
+									marker: {
+										enabled: true
+									}
+								}, {
+									name: 'column',
+									type: 'spline',
+									data: [7.4,7.6,6.5,7.7],
+									tooltip: {
+										valueSuffix: '°C'
+									},
+									zIndex: 2,
+									color:'#4BB949',
+									marker: {
+										enabled: true
+									}
+								}]
+							});
+						</script>
